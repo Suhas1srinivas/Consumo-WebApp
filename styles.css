@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Consumoo - Snowflake-Inspired Enterprise UI/UX System
+   Consummo - Snowflake-Inspired Enterprise UI/UX System
    Enhanced Edition: Confident & Exciting First Impression, Satisfying Clicks,
    Silky Scroll Reveals & Smooth Micro-Animations
    ========================================================================== */
@@ -782,7 +782,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.65;
 }
 
-/* Consumoo Solution Highlight Card */
+/* Consummo Solution Highlight Card */
 .challenge-card.highlight-card {
   background: linear-gradient(135deg, #0b192c 0%, #0076d6 100%);
   border-color: var(--sn-cyan);
@@ -1391,7 +1391,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   Why Consumoo (6 Grid Cards)
+   Why Consummo (6 Grid Cards)
    ========================================================================== */
 
 .why-section {
@@ -2397,7 +2397,7 @@ h1, h2, h3, h4, h5, h6 {
   border-top: 2px dashed #ef4444;
 }
 
-.legend-line.consumoo-ai {
+.legend-line.consummo-ai {
   background: #0076d6;
   box-shadow: 0 0 6px rgba(0, 118, 214, 0.4);
 }
