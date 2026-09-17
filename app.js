@@ -1,5 +1,5 @@
 /**
- * Consumo - AI-Powered Intelligence for FMCG & Retail
+ * Consumoo - AI-Powered Intelligence for FMCG & Retail
  * Enterprise Micro-Interactions & Application Logic
  * (Scroll Reveals, Satisfying Clicks, Ripple Physics, Progress Bar)
  */
