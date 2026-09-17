@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Supply Chain &amp; Inventory Optimisation | Consumo Decision Intelligence</title>
+  <meta name="description"
+    content="Discover how Consumo uses Multi-Echelon Inventory Optimisation (MEIO) and stochastic lead-time modeling to eliminate stock-outs, cut dead stock, and liberate working capital.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- Top Scroll Reading Progress Bar -->
+  <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
+
+  <!-- Site Header -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-mark">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+        <span>Consumo<span class="dot">.</span></span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html#solutions" class="nav-link">Overview</a>
+        <a href="demand-forecasting.html" class="nav-link">Demand</a>
+        <a href="inventory-optimisation.html" class="nav-link is-active" style="color: var(--sn-blue); font-weight:700;">Inventory</a>
+        <a href="index.html#why-consumo" class="nav-link">Why Consumo</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-primary btn-sm open-modal-btn">
+          <span>Book Assessment</span>
+        </button>
+        <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="Toggle Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="solution-hero">
+    <div class="container solution-hero-content">
+      <div class="breadcrumb-nav">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="index.html#solutions">Solutions</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">Inventory Optimisation</span>
+      </div>
+
+      <div class="section-label" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); color: #f1f5f9; margin-bottom: 20px;">
+        <span class="section-label-dot"></span>
+        <span>PILLAR 02 — AI &amp; DECISION INTELLIGENCE</span>
+      </div>
+
+      <h1 class="solution-hero-title">
+        Stop Overstocking. Eliminate Stock-Outs.
+      </h1>
+      <p class="solution-hero-desc">
+        Dynamic safety stock calibration, multi-echelon inventory optimization (MEIO), and stochastic lead-time modeling to liberate working capital while hitting 97%+ order fill rates.
+      </p>
+
+      <div class="solution-hero-stats">
+        <div class="hero-stat-card">
+          <div class="hero-stat-num">-32%</div>
+          <div class="hero-stat-lbl">Excess Inventory Reduction</div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-num">97.4%</div>
+          <div class="hero-stat-lbl">On-Time In-Full (OTIF) Service</div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-num">18–25%</div>
+          <div class="hero-stat-lbl">Working Capital Released</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: The Challenge -->
+  <section class="detail-section">
+    <div class="container">
+      <div class="center-header">
+        <span class="section-label">
+          <span class="section-label-dot"></span>
+          <span>The Challenge</span>
+        </span>
+        <h2 class="section-title">Static Min-Max Rules Trap Millions in Dead Capital</h2>
+        <p class="section-subtitle">Why traditional single-node safety stock calculations fail across complex supply chains.</p>
+      </div>
+
+      <div class="challenge-callout-box">
+        <div class="challenge-callout-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <span>The Inventory Paradox: Too Much of What Doesn't Sell, None of What Does</span>
+        </div>
+        <p class="challenge-callout-text">
+          Planners rely on static 30-day forward cover rules and fixed reorder points. In reality, supplier lead times fluctuate by weeks, and regional demand is volatile. Warehouses brim with stagnant inventory tying up capital, while high-velocity lines face devastating stock-outs and emergency air-freight fees.
+        </p>
+      </div>
+
+      <div class="challenge-pain-grid">
+        <div class="pain-item">
+          <h4>Siloed Single-Echelon Buffers</h4>
+          <p>Each distribution center and retail store calculates safety stock independently, stacking redundant buffers across the network.</p>
+        </div>
+        <div class="pain-item">
+          <h4>Stochastic Lead-Time Blindness</h4>
+          <p>Spreadsheet models treat 14-day vendor lead times as rigid constants, leaving companies vulnerable to supply chain shocks.</p>
+        </div>
+        <div class="pain-item">
+          <h4>Dead Stock &amp; Obsolescence</h4>
+          <p>Capital sits frozen in slow-moving inventory while top-tier SKUs starve for space and financing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Before vs. After Visual Graphs -->
+  <section class="detail-section alt-bg">
+    <div class="container">
+      <div class="center-header">
+        <span class="section-label">
+          <span class="section-label-dot"></span>
+          <span>Visual Proof</span>
+        </span>
+        <h2 class="section-title">Before vs. With Consumo Inventory Engine</h2>
+        <p class="section-subtitle">Inventory holding patterns comparing legacy min-max buffers against AI multi-echelon optimization.</p>
+      </div>
+
+      <div class="viz-comparison-grid">
+        <!-- Card 1: Before Consumo -->
+        <div class="viz-card before-card">
+          <div class="viz-card-header">
+            <div>
+              <div class="viz-card-title">Before Consumo</div>
+              <div class="viz-card-subtitle">Static Min-Max Rules &amp; Fixed Safety Stock</div>
+            </div>
+            <span class="viz-badge before">High Buffer Volatility</span>
+          </div>
+
+          <div class="svg-chart-wrapper">
+            <svg class="chart-svg" viewBox="0 0 500 220" preserveAspectRatio="none">
+              <!-- Grid lines -->
+              <line x1="40" y1="30" x2="480" y2="30" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3" />
+              <line x1="40" y1="80" x2="480" y2="80" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3" />
+              <line x1="40" y1="130" x2="480" y2="130" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3" />
+              <line x1="40" y1="180" x2="480" y2="180" stroke="#cbd5e1" stroke-width="1.5" />
+
+              <!-- Axes Labels -->
+              <text x="15" y="35" font-size="10" fill="#94a3b8" font-family="monospace">100d</text>
+              <text x="15" y="85" font-size="10" fill="#94a3b8" font-family="monospace">60d</text>
+              <text x="15" y="135" font-size="10" fill="#94a3b8" font-family="monospace">30d</text>
+              <text x="25" y="185" font-size="10" fill="#94a3b8" font-family="monospace">0d</text>
+
+              <!-- Stockout Shaded Area below line 180 (Zero stock) -->
+              <polygon points="190,180 230,205 260,180" fill="rgba(239, 68, 68, 0.3)" />
+              <text x="210" y="200" font-size="9" fill="#b91c1c" font-weight="bold">STOCKOUT</text>
+
+              <!-- Overstock Holding Area -->
+              <polygon points="260,40 340,35 410,70 410,130 260,130" fill="rgba(239, 68, 68, 0.14)" />
+              <text x="310" y="70" font-size="9.5" fill="#b91c1c" font-weight="bold">DEAD CAPITAL BUFFER</text>
+
+              <!-- Static Safety Stock (Constant 30 days) -->
+              <line x1="40" y1="130" x2="480" y2="130" stroke="#f87171" stroke-width="2" stroke-dasharray="5,4" />
+
+              <!-- Erratic Sawtooth On-Hand Inventory Curve -->
+              <path d="M 40,60 L 120,130 L 120,45 L 190,180 L 230,205 L 260,40 L 350,110 L 350,35 L 430,135 L 480,115" fill="none" stroke="#ef4444" stroke-width="2.5" />
+
+              <circle cx="230" cy="205" r="4" fill="#ef4444" />
+              <text x="180" y="218" font-size="9" fill="#ef4444">Zero Shelf Availability</text>
+            </svg>
+
+            <div class="chart-legend">
+              <div class="legend-item">
+                <div class="legend-line legacy-error" style="background:#ef4444; border:none; height:2.5px;"></div>
+                <span>On-Hand Inventory (Days of Supply)</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-line" style="background:#f87171; border-top:2px dashed #f87171; height:2px;"></div>
+                <span>Static 30-Day Safety Buffer</span>
+              </div>
+              <div class="legend-item">
+                <span style="display:inline-block; width:10px; height:10px; background:rgba(239, 68, 68, 0.2); border:1px solid #ef4444; border-radius:2px;"></span>
+                <span>Unbalanced Stockout / Trapped Capital</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="viz-metrics-row">
+            <div class="viz-metric-box">
+              <div class="viz-metric-val">48 Days</div>
+              <div class="viz-metric-label">Average Inventory Days</div>
+            </div>
+            <div class="viz-metric-box">
+              <div class="viz-metric-val">87.4%</div>
+              <div class="viz-metric-label">Order Fill Rate (OTIF)</div>
+            </div>
+            <div class="viz-metric-box">
+              <div class="viz-metric-val">$350K+</div>
+              <div class="viz-metric-label">Capital in Dead Stock</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: With Consumo -->
+        <div class="viz-card after-card">
+          <div class="viz-card-header">
+            <div>
+              <div class="viz-card-title">With Consumo MEIO Engine</div>
+              <div class="viz-card-subtitle">Dynamic Safety Stock &amp; Stochastic Lead Times</div>
+            </div>
+            <span class="viz-badge after">97.4% Fill Rate</span>
+          </div>
+
+          <div class="svg-chart-wrapper">
+            <svg class="chart-svg" viewBox="0 0 500 220" preserveAspectRatio="none">
+              <!-- Grid lines -->
+              <line x1="40" y1="30" x2="480" y2="30" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3" />
+              <line x1="40" y1="80" x2="480" y2="80" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3" />
+              <line x1="40" y1="130" x2="480" y2="130" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3" />
+              <line x1="40" y1="180" x2="480" y2="180" stroke="#cbd5e1" stroke-width="1.5" />
+
+              <!-- Axes Labels -->
+              <text x="15" y="35" font-size="10" fill="#94a3b8" font-family="monospace">100d</text>
+              <text x="15" y="85" font-size="10" fill="#94a3b8" font-family="monospace">60d</text>
+              <text x="15" y="135" font-size="10" fill="#94a3b8" font-family="monospace">30d</text>
+              <text x="25" y="185" font-size="10" fill="#94a3b8" font-family="monospace">0d</text>
+
+              <!-- Dynamic Safety Stock Band (Smooth varying buffer) -->
+              <path d="M 40,145 Q 120,135 180,140 T 260,125 T 350,140 T 440,135 L 480,140 L 480,165 Q 440,160 350,165 T 260,150 T 180,165 T 40,168 Z" fill="rgba(41, 181, 232, 0.16)" />
+
+              <!-- Optimized Inventory Curve (Controlled, perfectly bouncing above safety threshold) -->
+              <path d="M 40,95 L 120,142 L 120,80 L 210,138 L 210,75 L 300,130 L 300,78 L 390,135 L 390,82 L 480,138" fill="none" stroke="#0076d6" stroke-width="3" />
+
+              <!-- Dynamic Reorder annotations -->
+              <circle cx="210" cy="138" r="4" fill="#29b5e8" />
+              <rect x="190" y="150" width="135" height="18" rx="3" fill="#0b192c" />
+              <text x="196" y="163" font-size="8.5" fill="#29b5e8" font-weight="700">Dynamic Reorder Triggered</text>
+
+              <circle cx="300" cy="78" r="4" fill="#0076d6" />
+              <rect x="290" y="55" width="120" height="18" rx="3" fill="#eef6fc" stroke="rgba(0,118,214,0.3)" />
+              <text x="296" y="68" font-size="8.5" fill="#0076d6" font-weight="700">Multi-Node Inter-DC Transfer</text>
+            </svg>
+
+            <div class="chart-legend">
+              <div class="legend-item">
+                <div class="legend-line consumo-ai"></div>
+                <span>Optimized On-Hand Inventory</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-line ci-band"></div>
+                <span>Dynamic Safety Stock Target</span>
+              </div>
+              <div class="legend-item">
+                <span style="display:inline-block; width:8px; height:8px; background:#29b5e8; border-radius:50%;"></span>
+                <span>Automated PO Calibration</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="viz-metrics-row">
+            <div class="viz-metric-box">
+              <div class="viz-metric-val">22 Days</div>
+              <div class="viz-metric-label">Optimized Stock Cover</div>
+            </div>
+            <div class="viz-metric-box">
+              <div class="viz-metric-val">97.4%</div>
+              <div class="viz-metric-label">Guaranteed Service Level</div>
+            </div>
+            <div class="viz-metric-box">
+              <div class="viz-metric-val">-32%</div>
+              <div class="viz-metric-label">Holding Cost Savings</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Visualization: Capital Health & Stock Composition Stacked Bar Chart -->
+      <div class="viz-deepdive-showcase">
+        <div class="viz-deepdive-header">
+          <div>
+            <h3>Inventory Capital Health &amp; Stock Composition Breakdown</h3>
+            <p>Visualizing where working capital is actually deployed across active inventory, protective safety buffers, and wasteful dead stock. Consumo eliminates 88% of dead and stagnant stock while increasing active velocity capital.</p>
+          </div>
+          <span class="viz-badge after">Capital Health Breakdown</span>
+        </div>
+
+        <div class="svg-chart-wrapper" style="background:#ffffff; border:1px solid var(--border-light); padding:26px 22px;">
+          <svg class="chart-svg" viewBox="0 0 800 240" preserveAspectRatio="none" style="height:250px;">
+            <!-- Grid Lines -->
+            <line x1="210" y1="20" x2="210" y2="200" stroke="#cbd5e1" stroke-width="1.5" />
+            <line x1="320" y1="20" x2="320" y2="200" stroke="#f1f5f9" stroke-width="1" stroke-dasharray="3,3" />
+            <line x1="430" y1="20" x2="430" y2="200" stroke="#f1f5f9" stroke-width="1" stroke-dasharray="3,3" />
+            <line x1="540" y1="20" x2="540" y2="200" stroke="#f1f5f9" stroke-width="1" stroke-dasharray="3,3" />
+            <line x1="650" y1="20" x2="650" y2="200" stroke="#f1f5f9" stroke-width="1" stroke-dasharray="3,3" />
+            <line x1="760" y1="20" x2="760" y2="200" stroke="#f1f5f9" stroke-width="1" stroke-dasharray="3,3" />
+
+            <!-- X Axis Labels (Capital) -->
+            <text x="205" y="218" font-size="10" fill="#94a3b8" font-family="monospace">$0</text>
+            <text x="310" y="218" font-size="10" fill="#94a3b8" font-family="monospace">$1.0M</text>
+            <text x="420" y="218" font-size="10" fill="#94a3b8" font-family="monospace">$2.0M</text>
+            <text x="530" y="218" font-size="10" fill="#94a3b8" font-family="monospace">$3.0M</text>
+            <text x="640" y="218" font-size="10" fill="#94a3b8" font-family="monospace">$4.0M</text>
+            <text x="745" y="218" font-size="10" fill="#94a3b8" font-family="monospace">$5.0M</text>
+
+            <!-- ROW 1: Legacy Spreadsheets -->
+            <text x="15" y="65" font-size="12" fill="#0b192c" font-weight="700">Legacy Planning</text>
+            <text x="15" y="82" font-size="10" fill="#64748b">Total: $4.8M (87.4% OTIF)</text>
+
+            <!-- Stacked Bar 1: Legacy (Active $1.8M = 198px, Buffer $1.7M = 187px, Excess $950K = 104px, Dead $350K = 38px) -->
+            <rect x="210" y="52" width="198" height="36" rx="0" fill="#38bdf8" />
+            <rect x="408" y="52" width="187" height="36" rx="0" fill="#94a3b8" />
+            <rect x="595" y="52" width="104" height="36" rx="0" fill="#f59e0b" />
+            <rect x="699" y="52" width="38" height="36" rx="0" fill="#ef4444" />
+            <text x="742" y="74" font-size="11" fill="#ef4444" font-weight="800">$4.8M</text>
+
+            <!-- ROW 2: Consumo Multi-Echelon AI -->
+            <text x="15" y="145" font-size="12" fill="#0076d6" font-weight="800">Consumo MEIO</text>
+            <text x="15" y="162" font-size="10" fill="#0284c7" font-weight="600">Total: $3.1M (97.4% OTIF)</text>
+
+            <!-- Stacked Bar 2: Consumo (Active $2.1M = 231px, Dynamic Buffer $850K = 93px, Excess $110K = 12px, Dead $40K = 5px) -->
+            <rect x="210" y="132" width="231" height="36" rx="0" fill="#0076d6" />
+            <rect x="441" y="132" width="93" height="36" rx="0" fill="#29b5e8" />
+            <rect x="534" y="132" width="12" height="36" rx="0" fill="#f59e0b" />
+            <rect x="546" y="132" width="5" height="36" rx="0" fill="#ef4444" />
+            <text x="558" y="154" font-size="11" fill="#0076d6" font-weight="800">$3.1M (-$1.7M)</text>
+
+            <!-- Difference Marker Bracket -->
+            <line x1="551" y1="125" x2="737" y2="125" stroke="#10b981" stroke-width="2" />
+            <line x1="551" y1="121" x2="551" y2="129" stroke="#10b981" stroke-width="2" />
+            <line x1="737" y1="121" x2="737" y2="129" stroke="#10b981" stroke-width="2" />
+            <rect x="575" y="102" width="140" height="18" rx="3" fill="#d1fae5" />
+            <text x="583" y="115" font-size="9" fill="#065f46" font-weight="bold">-$1.7M Working Capital Freed</text>
+          </svg>
+
+          <!-- Interactive Legend -->
+          <div class="chart-legend" style="margin-top:16px; justify-content:flex-start; gap:20px;">
+            <div class="legend-item">
+              <span style="display:inline-block; width:12px; height:12px; background:#0076d6; border-radius:2px;"></span>
+              <span>Active Revenue Stock ($2.1M vs $1.8M)</span>
+            </div>
+            <div class="legend-item">
+              <span style="display:inline-block; width:12px; height:12px; background:#29b5e8; border-radius:2px;"></span>
+              <span>Dynamic Network Buffer ($850K vs $1.7M)</span>
+            </div>
+            <div class="legend-item">
+              <span style="display:inline-block; width:12px; height:12px; background:#f59e0b; border-radius:2px;"></span>
+              <span>Slow-Moving Excess ($110K vs $950K)</span>
+            </div>
+            <div class="legend-item">
+              <span style="display:inline-block; width:12px; height:12px; background:#ef4444; border-radius:2px;"></span>
+              <span>Dead Stock ($40K vs $350K)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="viz-deepdive-footer">
+          <div class="viz-insight-pill">
+            <span class="viz-insight-dot"></span>
+            <span>Eliminates 88% of Dead Stock &amp; Excess While Deploying +$300K More Capital into High-Velocity Winners</span>
+          </div>
+          <span style="font-size:0.86rem; color:var(--text-muted); font-weight:500;">Method: Multi-Echelon Stock Health Optimization (ABC-XYZ Dynamic Clustering)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Technical Deep Dive -->
+  <section class="detail-section">
+    <div class="container">
+      <div class="center-header">
+        <span class="section-label">
+          <span class="section-label-dot"></span>
+          <span>Optimization Algorithms</span>
+        </span>
+        <h2 class="section-title">Using the Models: How Inventory Is Managed Now</h2>
+        <p class="section-subtitle">Mathematical constraint programming combined with Bayesian probability distributions.</p>
+      </div>
+
+      <div class="tech-deepdive-grid">
+        <!-- Tech 1 -->
+        <div class="tech-deepdive-card">
+          <div class="tech-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="1" y="3" width="15" height="13"></rect>
+              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+              <circle cx="5.5" cy="18.5" r="2.5"></circle>
+              <circle cx="18.5" cy="18.5" r="2.5"></circle>
+            </svg>
+          </div>
+          <span class="tech-algo-tag">Multi-Echelon MEIO</span>
+          <h3>Network-Wide Pooling</h3>
+          <p>
+            Treats your supply chain as an interconnected ecosystem. Balances stock between Tier-1 central distribution hubs, regional DCs, and retail backrooms to pool risk and prevent localized stockouts.
+          </p>
+        </div>
+
+        <!-- Tech 2 -->
+        <div class="tech-deepdive-card">
+          <div class="tech-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+          </div>
+          <span class="tech-algo-tag">Stochastic Bayesian Modeling</span>
+          <h3>Lead-Time Uncertainty Distributions</h3>
+          <p>
+            Replaces static single-day lead-time assumptions with dynamic probability distributions. Automatically widens protective buffers when supplier delivery variability increases.
+          </p>
+        </div>
+
+        <!-- Tech 3 -->
+        <div class="tech-deepdive-card">
+          <div class="tech-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+          </div>
+          <span class="tech-algo-tag">MILP Optimization</span>
+          <h3>Constraint Programming</h3>
+          <p>
+            Solves Mixed-Integer Linear Programming (MILP) equations every night to balance working capital limits, warehouse pallet capacity, pallet order minimums (MOQs), and container fill rates.
+          </p>
+        </div>
+
+        <!-- Tech 4 -->
+        <div class="tech-deepdive-card">
+          <div class="tech-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+          </div>
+          <span class="tech-algo-tag">Dynamic ABC-XYZ</span>
+          <h3>Self-Healing SKU Segmentation</h3>
+          <p>
+            Automatically reclassifies SKUs weekly based on velocity and volatility. Moves fast-moving items into tight automated continuous replenishment cycles while assigning probabilistic buffers to long-tail items.
+          </p>
+        </div>
+
+        <!-- Tech 5 -->
+        <div class="tech-deepdive-card">
+          <div class="tech-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+              <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+            </svg>
+          </div>
+          <span class="tech-algo-tag">Shelf-Life Decay</span>
+          <h3>Perishable &amp; Expiry Prevention</h3>
+          <p>
+            Models batch expiration dates and degradation curves. Automatically issues transfer or bundle markdown triggers before SKUs cross into unrecoverable obsolescence zones.
+          </p>
+        </div>
+
+        <!-- Tech 6 -->
+        <div class="tech-deepdive-card">
+          <div class="tech-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <span class="tech-algo-tag">OTIF Optimization</span>
+          <h3>Service Level Targeting</h3>
+          <p>
+            Allows leadership to set tailored customer service level targets (e.g., 99.5% for strategic tier-1 retailers vs. 95% for bulk wholesale) and calculates the exact mathematical stock required.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Decisions You Can Take -->
+  <section class="detail-section alt-bg">
+    <div class="container">
+      <div class="center-header">
+        <span class="section-label">
+          <span class="section-label-dot"></span>
+          <span>Actionable Outputs</span>
+        </span>
+        <h2 class="section-title">Decisions You Can Take Immediately</h2>
+        <p class="section-subtitle">Turn raw supply chain visibility into confident, margin-maximizing procurement actions.</p>
+      </div>
+
+      <div class="decisions-flow-list">
+        <div class="decision-flow-item">
+          <div class="decision-flow-bullet">01</div>
+          <div class="decision-flow-content">
+            <h4>Calibrated Purchase Orders Aligned to MOQs</h4>
+            <p>Generate supplier-ready purchase orders that fulfill supplier minimum order quantities while minimizing warehouse holding capital.</p>
+          </div>
+        </div>
+
+        <div class="decision-flow-item">
+          <div class="decision-flow-bullet">02</div>
+          <div class="decision-flow-content">
+            <h4>Inter-DC Rebalancing Recommendations</h4>
+            <p>Execute lateral transfers from overstocked hubs to starving regional depots, avoiding costly emergency supplier rushes.</p>
+          </div>
+        </div>
+
+        <div class="decision-flow-item">
+          <div class="decision-flow-bullet">03</div>
+          <div class="decision-flow-content">
+            <h4>Supplier Lead-Time Penalty Adjustments</h4>
+            <p>Quantify the exact dollar cost of supplier delivery unreliability and adjust order cadence to defend channel service levels.</p>
+          </div>
+        </div>
+
+        <div class="decision-flow-item">
+          <div class="decision-flow-bullet">04</div>
+          <div class="decision-flow-content">
+            <h4>Working Capital Release Milestones</h4>
+            <p>Identify slow-moving inventory tranches and execute phased de-stocking plans to liberate liquidity back to treasury.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Final CTA -->
+  <section class="final-cta-section" id="contact">
+    <div class="container">
+      <div class="cta-box">
+        <span class="section-label">
+          <span class="section-label-dot"></span>
+          <span>Audit Your Inventory</span>
+        </span>
+        <h2>Calculate Your Free Working Capital Opportunity</h2>
+        <div class="solution-headline" style="margin-bottom: 18px;">Discover How Much Trapped Liquidity Consumo Can Release in 30 Days.</div>
+        <p>
+          We analyze your stock positions, lead times, and SKU velocities to reveal exact safety stock reduction and fill-rate recovery numbers.
+        </p>
+        <div class="cta-box-buttons">
+          <button class="btn btn-cyan btn-lg open-modal-btn">
+            <span>Book a Free Inventory Assessment</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+          <a href="index.html" class="btn btn-ghost-dark btn-lg">
+            <span>Back to Home Overview</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+            <div class="brand-mark" style="width:28px; height:28px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <h3 style="margin:0; font-size:1.35rem; color:#ffffff;">Consumo</h3>
+          </div>
+          <p>AI-Powered Intelligence for FMCG &amp; Retail</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="demand-forecasting.html">Demand Forecasting</a></li>
+            <li><a href="inventory-optimisation.html">Supply Chain &amp; Inventory Optimisation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="#contact" class="open-modal-btn">Contact</a></li>
+            <li><a href="index.html#why-consumo">Why Consumo</a></li>
+            <li><a href="#contact" class="open-modal-btn">Data Assessment</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Consumo. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Assessment Modal -->
+  <div class="modal-backdrop" id="assessment-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">Book a Free Data Assessment</div>
+          <div class="modal-subtitle">Benchmark your inventory &amp; supply chain with Consumo AI</div>
+        </div>
+        <button class="modal-close" id="modal-close-btn" aria-label="Close modal">×</button>
+      </div>
+
+      <div class="modal-body">
+        <form id="assessment-form">
+          <div class="form-group">
+            <label class="form-label" for="modal-name">Full Name</label>
+            <input type="text" class="form-input" id="modal-name" placeholder="Michael Chen" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="modal-email">Work Email</label>
+            <input type="email" class="form-input" id="modal-email" placeholder="m.chen@fmcgbrand.com" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="modal-company">Company Name</label>
+            <input type="text" class="form-input" id="modal-company" placeholder="Global Logistics &amp; Retail" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="modal-focus">Primary Assessment Focus</label>
+            <select class="custom-select" id="modal-focus">
+              <option value="demand">Demand Planning &amp; Forecasting</option>
+              <option value="inventory" selected>Inventory &amp; Replenishment Optimisation</option>
+              <option value="supply">Supply Chain &amp; Lead-Time Resilience</option>
+            </select>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" id="modal-cancel-btn">Cancel</button>
+        <button type="button" class="btn btn-primary btn-sm" id="modal-submit-btn">Submit Request</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top-btn" id="back-to-top-btn" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

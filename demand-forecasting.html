@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demand Forecasting | Consumo Decision Intelligence</title>
+  <meta name="description"
+    content="Discover how Consumo replaces manual spreadsheet forecasting with multi-horizon AI/ML models, hierarchical reconciliation, and external sensing to achieve 94%+ forecast accuracy.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+  <!-- Top Scroll Reading Progress Bar -->
+  <div class="scroll-progress-bar" id="scroll-progress-bar"></div>
+
+  <!-- Site Header -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-mark">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </div>
+        <span>Consumo<span class="dot">.</span></span>
+      </a>
+
+      <nav class="nav-menu" id="nav-menu">
+        <a href="index.html#solutions" class="nav-link">Overview</a>
+        <a href="demand-forecasting.html" class="nav-link is-active" style="color: var(--sn-blue); font-weight:700;">Demand</a>
+        <a href="inventory-optimisation.html" class="nav-link">Inventory</a>
+        <a href="index.html#why-consumo" class="nav-link">Why Consumo</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-primary btn-sm open-modal-btn">
+          <span>Book Assessment</span>
+        </button>
+        <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="Toggle Menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="solution-hero">
+    <div class="container solution-hero-content">
+      <div class="breadcrumb-nav">
+        <a href="index.html">Home</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="index.html#solutions">Solutions</a>
+        <span class="breadcrumb-separator">/</span>
+        <span class="breadcrumb-current">Demand Forecasting</span>
+      </div>
+
+      <div class="section-label" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.15); color: #f1f5f9; margin-bottom: 20px;">
+        <span class="section-label-dot"></span>
+        <span>PILLAR 01 — AI &amp; DECISION INTELLIGENCE</span>
+      </div>
+
+      <h1 class="solution-hero-title">
+        Know Demand Before It Happens.
+      </h1>
+      <p class="solution-hero-desc">
+        Replace static spreadsheet heuristics with adaptive Machine Learning and Time-Series Modeling, hierarchical reconciliation, and external signal sensing — delivering 94%+ forecast accuracy.
+      </p>
+
+      <div class="solution-hero-stats">
+        <div class="hero-stat-card">
+          <div class="hero-stat-num">94%+</div>
+          <div class="hero-stat-lbl">SKU-Store Forecast Accuracy</div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-num">-40%</div>
+          <div class="hero-stat-lbl">Reduction in Waste &amp; Stock-Outs</div>
+        </div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-num">&lt;1 hr</div>
+          <div class="hero-stat-lbl">Daily Automated Model Retraining</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 1: The Challenge -->
+  <section class="detail-section">
+    <div class="container">
+      <div class="center-header">
+        <span class="section-label">
+          <span class="section-label-dot"></span>
+          <span>The Challenge</span>
+        </span>
+        <h2 class="section-title">Manual Forecasting Can’t Keep Up With Complexity</h2>
+        <p class="section-subtitle">Why traditional planning spreadsheets break down in dynamic retail environments.</p>
+      </div>
+
+      <div class="challenge-callout-box">
+        <div class="challenge-callout-title">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="8" x2="12" y2="12"></line>
+            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+          </svg>
+          <span>The Core Breakdown in Current Planning</span>
+        </div>
+        <p class="challenge-callout-text">
+          Managers spend hours each week trapped in spreadsheets, yet achieve only <strong>65–70% accuracy</strong>. Weather shifts, viral social trends, and promotional ripple effects are impossible to model by hand. Human bias and lagging historical averages lead directly to costly stock-outs on high-margin lines and dead-stock write-offs on slow movers.
+        </p>
+      </div>
+
+      <div class="challenge-pain-grid">
+        <div class="pain-item">
+          <h4>Spreadsheet Brittleness</h4>
+          <p>Static formulas and moving averages assume the future will mirror the past, blind to non-linear demand shocks.</p>
+        </div>
+        <div class="pain-item">
+          <h4>Lagging &amp; Disconnected Signals</h4>
+          <p>Point-of-Sale (POS) velocities, pricing actions, competitor moves, and weather anomalies are disconnected from supply decisions.</p>
+        </div>
+        <div class="pain-item">
+          <h4>The Bullwhip Distortion</h4>
+          <p>A minor 5% forecast error at the store shelf magnifies into a 35%+ inventory swing at central distribution hubs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 2: Before vs. After Visual Graphs -->
+  <section class="detail-section alt-bg">
+    <div class="container">
+      <div class="center-header">
+        <span class="section-label">
+          <span class="section-label-dot"></span>
+          <span>Visual Proof</span>
+        </span>
+        <h2 class="section-title">Before vs. With Consumo AI Models</h2>
+        <p class="section-subtitle">Real-world forecast trajectories comparing legacy manual heuristics against Consumo ML.</p>
+      </div>
+
+      <div class="viz-comparison-grid">
+        <!-- Card 1: Before Consumo -->
+        <div class="viz-card before-card">
+          <div class="viz-card-header">
+            <div>
+              <div class="viz-card-title">Before Consumo</div>
+              <div class="viz-card-subtitle">Manual Spreadsheet Heuristics</div>
+            </div>
+            <span class="viz-badge before">65% – 70% Accuracy</span>
+          </div>
+
+          <div class="svg-chart-wrapper">
+            <svg class="chart-svg" viewBox="0 0 500 220" preserveAspectRatio="none">
+              <!-- Grid lines -->
+              <line x1="40" y1="30" x2="480" y2="30" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3" />
+              <line x1="40" y1="80" x2="480" y2="80" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3" />
+              <line x1="40" y1="130" x2="480" y2="130" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3" />
+              <line x1="40" y1="180" x2="480" y2="180" stroke="#cbd5e1" stroke-width="1.5" />
+
+              <!-- Axes Labels -->
+              <text x="15" y="35" font-size="10" fill="#94a3b8" font-family="monospace">1500</text>
+              <text x="15" y="85" font-size="10" fill="#94a3b8" font-family="monospace">1000</text>
+              <text x="15" y="135" font-size="10" fill="#94a3b8" font-family="monospace">500</text>
+              <text x="25" y="185" font-size="10" fill="#94a3b8" font-family="monospace">0</text>
+
+              <!-- Stock-out Error Area (Gap between Actual spike and Flat forecast) -->
+              <polygon points="180,110 240,40 280,70 310,110 310,115 180,115" fill="rgba(239, 68, 68, 0.18)" />
+              <text x="210" y="85" font-size="10" fill="#b91c1c" font-weight="bold">STOCK-OUT GAP</text>
+
+              <!-- Overstock Error Area -->
+              <polygon points="340,140 400,165 460,175 460,120 340,120" fill="rgba(239, 68, 68, 0.15)" />
+              <text x="375" y="145" font-size="10" fill="#b91c1c" font-weight="bold">OVERSTOCK</text>
+
+              <!-- Actual Customer Demand Line -->
+              <path d="M 40,130 Q 110,125 160,115 T 240,40 T 320,130 T 400,165 T 480,150" fill="none" stroke="#64748b" stroke-width="2.5" />
+
+              <!-- Flat / Lagging Manual Spreadsheet Line -->
+              <path d="M 40,125 L 170,120 L 220,115 L 310,115 L 360,120 L 480,120" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="6,4" />
+
+              <!-- Annotations -->
+              <circle cx="240" cy="40" r="4" fill="#64748b" />
+              <text x="230" y="25" font-size="9.5" fill="#64748b" font-weight="600">Promo Surge</text>
+            </svg>
+
+            <div class="chart-legend">
+              <div class="legend-item">
+                <div class="legend-line actual"></div>
+                <span>Actual Demand (Units)</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-line legacy-error"></div>
+                <span>Manual Spreadsheet Plan</span>
+              </div>
+              <div class="legend-item">
+                <span style="display:inline-block; width:10px; height:10px; background:rgba(239, 68, 68, 0.2); border:1px solid #ef4444; border-radius:2px;"></span>
+                <span>Lost Sales / Excess Buffer</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="viz-metrics-row">
+            <div class="viz-metric-box">
+              <div class="viz-metric-val">32–38%</div>
+              <div class="viz-metric-label">MAPE Forecast Error</div>
+            </div>
+            <div class="viz-metric-box">
+              <div class="viz-metric-val">14 Days</div>
+              <div class="viz-metric-label">Reaction Lag to Trends</div>
+            </div>
+            <div class="viz-metric-box">
+              <div class="viz-metric-val">12+ Hrs</div>
+              <div class="viz-metric-label">Weekly Manual Prep</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: With Consumo -->
+        <div class="viz-card after-card">
+          <div class="viz-card-header">
+            <div>
+              <div class="viz-card-title">With Consumo AI Models</div>
+              <div class="viz-card-subtitle">Multi-Horizon Machine Learning &amp; Sensing</div>
+            </div>
+            <span class="viz-badge after">94%+ Accuracy</span>
+          </div>
+
+          <div class="svg-chart-wrapper">
+            <svg class="chart-svg" viewBox="0 0 500 220" preserveAspectRatio="none">
+              <!-- Grid lines -->
+              <line x1="40" y1="30" x2="480" y2="30" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3" />
+              <line x1="40" y1="80" x2="480" y2="80" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3" />
+              <line x1="40" y1="130" x2="480" y2="130" stroke="#e2e8f0" stroke-width="1" stroke-dasharray="3,3" />
+              <line x1="40" y1="180" x2="480" y2="180" stroke="#cbd5e1" stroke-width="1.5" />
+
+              <!-- Axes Labels -->
+              <text x="15" y="35" font-size="10" fill="#94a3b8" font-family="monospace">1500</text>
+              <text x="15" y="85" font-size="10" fill="#94a3b8" font-family="monospace">1000</text>
+              <text x="15" y="135" font-size="10" fill="#94a3b8" font-family="monospace">500</text>
+              <text x="25" y="185" font-size="10" fill="#94a3b8" font-family="monospace">0</text>
+
+              <!-- 95% Confidence Interval Shaded Band -->
+              <path d="M 40,122 Q 110,117 160,107 T 240,32 T 320,122 T 400,157 T 480,142 L 480,158 Q 400,173 320,138 T 240,48 T 160,123 T 40,138 Z" fill="rgba(41, 181, 232, 0.18)" />
+
+              <!-- Actual Customer Demand Line -->
+              <path d="M 40,130 Q 110,125 160,115 T 240,40 T 320,130 T 400,165 T 480,150" fill="none" stroke="#64748b" stroke-width="2" stroke-dasharray="3,3" />
+
+              <!-- Consumo AI Forecast Line (Hugging curve with high fidelity) -->
+              <path d="M 40,128 Q 110,123 160,113 T 240,38 T 320,128 T 400,163 T 480,148" fill="none" stroke="#0076d6" stroke-width="3" />
+
+              <!-- Callout Badges on Curve -->
+              <circle cx="240" cy="38" r="5" fill="#29b5e8" stroke="#0076d6" stroke-width="2" />
+              <rect x="220" y="10" width="125" height="20" rx="4" fill="#0b192c" />
+              <text x="228" y="24" font-size="9" fill="#29b5e8" font-weight="700">Promo Anticipated (+180%)</text>
+
+              <circle cx="400" cy="163" r="4" fill="#0076d6" />
+              <rect x="375" y="185" width="105" height="18" rx="4" fill="#eef6fc" stroke="rgba(0,118,214,0.3)" />
+              <text x="382" y="198" font-size="8.5" fill="#0076d6" font-weight="700">Weather Shift Sensed</text>
+            </svg>
+
+            <div class="chart-legend">
+              <div class="legend-item">
+                <div class="legend-line consumo-ai"></div>
+                <span>Consumo ML Prediction</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-line ci-band"></div>
+                <span>95% Confidence Interval</span>
+              </div>
+              <div class="legend-item">
+                <div class="legend-line actual" style="border-top:2px dashed #94a3b8; background:none;"></div>
+                <span>Actual Demand (Units)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="viz-metrics-row">
+            <div class="viz-metric-box">
+              <div class="viz-metric-val">&lt;6%</div>
+              <div class="viz-metric-label">WMAPE Error Rate</div>
+            </div>
+            <div class="viz-metric-box">
+              <div class="viz-metric-val">Real-Time</div>
+              <div class="viz-metric-label">Adaptive Sensing</div>
+            </div>
+            <div class="viz-metric-box">
+              <div class="viz-metric-val">100%</div>
+              <div class="viz-metric-label">Automated Generation</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Additional Visualization: Signal Decomposition & SHAP Feature Attribution -->
+      <div class="viz-deepdive-showcase">
+        <div class="viz-deepdive-header">
+          <div>
+            <h3>Explainable AI: Demand Driver Decomposition (SHAP Attribution)</h3>
+            <p>Every SKU forecast is transparently decomposed into its causal business drivers. Planners see the exact mathematical impact of pricing, seasonality, promotions, and external weather signals.</p>
+          </div>
+          <span class="viz-badge after">Feature Attribution Analysis</span>
+        </div>
+
+        <div class="svg-chart-wrapper" style="background:#ffffff; border:1px solid var(--border-light); padding:24px 20px;">
+          <svg class="chart-svg" viewBox="0 0 800 240" preserveAspectRatio="none" style="height:250px;">
+            <!-- Grid Lines -->
+            <line x1="160" y1="20" x2="160" y2="210" stroke="#cbd5e1" stroke-width="1.5" />
+            <line x1="280" y1="20" x2="280" y2="210" stroke="#f1f5f9" stroke-width="1" stroke-dasharray="3,3" />
+            <line x1="400" y1="20" x2="400" y2="210" stroke="#f1f5f9" stroke-width="1" stroke-dasharray="3,3" />
+            <line x1="520" y1="20" x2="520" y2="210" stroke="#f1f5f9" stroke-width="1" stroke-dasharray="3,3" />
+            <line x1="640" y1="20" x2="640" y2="210" stroke="#f1f5f9" stroke-width="1" stroke-dasharray="3,3" />
+            <line x1="760" y1="20" x2="760" y2="210" stroke="#f1f5f9" stroke-width="1" stroke-dasharray="3,3" />
+
+            <!-- Labels X -->
+            <text x="155" y="225" font-size="10" fill="#94a3b8" font-family="monospace">0</text>
+            <text x="270" y="225" font-size="10" fill="#94a3b8" font-family="monospace">+400</text>
+            <text x="390" y="225" font-size="10" fill="#94a3b8" font-family="monospace">+800</text>
+            <text x="505" y="225" font-size="10" fill="#94a3b8" font-family="monospace">+1200</text>
+            <text x="625" y="225" font-size="10" fill="#94a3b8" font-family="monospace">+1600</text>
+            <text x="745" y="225" font-size="10" fill="#94a3b8" font-family="monospace">+2000</text>
+
+            <!-- Bar 1: Base Demand -->
+            <text x="20" y="42" font-size="11.5" fill="#334155" font-weight="600">Organic Baseline</text>
+            <rect x="160" y="30" width="300" height="20" rx="3" fill="#64748b" />
+            <text x="468" y="44" font-size="10.5" fill="#334155" font-weight="700">1,000 units</text>
+
+            <!-- Bar 2: Seasonality -->
+            <text x="20" y="72" font-size="11.5" fill="#334155" font-weight="600">Historical Seasonality</text>
+            <rect x="460" y="60" width="78" height="20" rx="3" fill="#0076d6" />
+            <text x="545" y="74" font-size="10.5" fill="#0076d6" font-weight="700">+260 units</text>
+
+            <!-- Bar 3: Promo Lift -->
+            <text x="20" y="102" font-size="11.5" fill="#334155" font-weight="600">Promotional Lift</text>
+            <rect x="538" y="90" width="135" height="20" rx="3" fill="#29b5e8" />
+            <text x="680" y="104" font-size="10.5" fill="#0284c7" font-weight="700">+450 units</text>
+
+            <!-- Bar 4: Price Elasticity Adjustment -->
+            <text x="20" y="132" font-size="11.5" fill="#334155" font-weight="600">Price Change (-3%)</text>
+            <rect x="638" y="120" width="35" height="20" rx="3" fill="#ef4444" />
+            <text x="680" y="134" font-size="10.5" fill="#b91c1c" font-weight="700">-110 units</text>
+
+            <!-- Bar 5: Weather Signal -->
+            <text x="20" y="162" font-size="11.5" fill="#334155" font-weight="600">Weather Shift (+4°C)</text>
+            <rect x="638" y="150" width="55" height="20" rx="3" fill="#38bdf8" />
+            <text x="700" y="164" font-size="10.5" fill="#0284c7" font-weight="700">+180 units</text>
+
+            <!-- Bar 6: Final Consumo Forecast -->
+            <text x="20" y="194" font-size="11.5" fill="#0b192c" font-weight="800">Consumo AI Forecast</text>
+            <rect x="160" y="180" width="558" height="22" rx="4" fill="url(#grad-consumo)" stroke="#0076d6" stroke-width="1.5" />
+            <text x="725" y="196" font-size="11.5" fill="#0076d6" font-weight="800">1,860 units</text>
+
+            <!-- Benchmark Line: Legacy Spreadsheet guess -->
+            <line x1="495" y1="20" x2="495" y2="210" stroke="#f87171" stroke-width="2" stroke-dasharray="4,4" />
+            <rect x="420" y="5" width="150" height="18" rx="3" fill="#fee2e2" />
+            <text x="428" y="17" font-size="9" fill="#b91c1c" font-weight="bold">Spreadsheet Estimate: 1,120</text>
+
+            <defs>
+              <linearGradient id="grad-consumo" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#e0f2fe" />
+                <stop offset="100%" stop-color="#bae6fd" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <div class="viz-deepdive-footer">
+          <div class="viz-insight-pill">
+            <span class="viz-insight-dot"></span>
+            <span>Avoided +740 Unit Stock-Out Spike by Quantifying Combined Weather &amp; Promo Drivers</span>
+          </div>
+          <span style="font-size:0.86rem; color:var(--text-muted); font-weight:500;">Model: Multi-Horizon Gradient Ensemble with Bayesian Prior Calibration</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3: Using the Models (Technical Architecture & Data Science) -->
+  <section class="detail-section">
+    <div class="container">
+      <div class="center-header">
+        <span class="section-label">
+          <span class="section-label-dot"></span>
+          <span>Data Science &amp; Engineering</span>
+        </span>
+        <h2 class="section-title">Using the Models: How Things Are Done Now</h2>
+        <p class="section-subtitle">A rigorous algorithmic pipeline tailored for complex, multi-echelon retail environments.</p>
+      </div>
+
+      <div class="tech-deepdive-grid">
+        <!-- Tech 1 -->
+        <div class="tech-deepdive-card">
+          <div class="tech-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <span class="tech-algo-tag">LightGBM &amp; CatBoost</span>
+          <h3>Gradient-Boosted Ensembles</h3>
+          <p>
+            Handles millions of non-linear feature interactions simultaneously. Captures price shifts, holiday calendars, localized cannibalization, and store-level footfall dynamics with zero manual tuning.
+          </p>
+        </div>
+
+        <!-- Tech 2 -->
+        <div class="tech-deepdive-card">
+          <div class="tech-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+            </svg>
+          </div>
+          <span class="tech-algo-tag">MinT Reconciliation</span>
+          <h3>Hierarchical Reconciliation</h3>
+          <p>
+            Mathematically reconciles SKU, Store, Regional Distribution Center (DC), and National aggregate forecasts using Minimum Trace (MinT) optimization. Guarantees 100% mathematical coherence across all business layers.
+          </p>
+        </div>
+
+        <!-- Tech 3 -->
+        <div class="tech-deepdive-card">
+          <div class="tech-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+              <line x1="9" y1="9" x2="9.01" y2="9"></line>
+              <line x1="15" y1="9" x2="15.01" y2="9"></line>
+            </svg>
+          </div>
+          <span class="tech-algo-tag">Croston’s &amp; TSB</span>
+          <h3>Intermittent &amp; Lumpy Demand</h3>
+          <p>
+            Slow-moving and long-tail products suffer from zero-inflated demand. Specialized Teunter-Syntetos-Babai (TSB) models decouple demand timing from volume, eliminating severe buffer overstocking.
+          </p>
+        </div>
+
+        <!-- Tech 4 -->
+        <div class="tech-deepdive-card">
+          <div class="tech-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+            </svg>
+          </div>
+          <span class="tech-algo-tag">Continuous Sensing</span>
+          <h3>Exogenous Feature Pipelines</h3>
+          <p>
+            Continuously ingests external weather forecasts, inflation indicators, social sentiment indices, and competitor shelf-pricing feeds to dynamically adjust short-term replenishment recommendations.
+          </p>
+        </div>
+
+        <!-- Tech 5 -->
+        <div class="tech-deepdive-card">
+          <div class="tech-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+            </svg>
+          </div>
+          <span class="tech-algo-tag">Temporal Attention</span>
+          <h3>Temporal Fusion Transformers (TFT)</h3>
+          <p>
+            Deep neural attention architectures model multiple forecast horizons simultaneously, identifying complex seasonal regimes and multi-week promotional hangover dips with high uncertainty calibration.
+          </p>
+        </div>
+
+        <!-- Tech 6 -->
+        <div class="tech-deepdive-card">
+          <div class="tech-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+            </svg>
+          </div>
+          <span class="tech-algo-tag">SHAP Explainability</span>
+          <h3>Transparent Feature Attribution</h3>
+          <p>
+            No black-box predictions. Shapley additive explanations (SHAP) show planners the precise contribution of price (+8%), promo campaign (+22%), or seasonal temperature (-5%) driving every forecast.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 4: Decisions You Can Take -->
+  <section class="detail-section alt-bg">
+    <div class="container">
+      <div class="center-header">
+        <span class="section-label">
+          <span class="section-label-dot"></span>
+          <span>Actionable Outputs</span>
+        </span>
+        <h2 class="section-title">Decisions You Can Take Immediately</h2>
+        <p class="section-subtitle">Consumo translates complex probabilistic curves into confident commercial actions.</p>
+      </div>
+
+      <div class="decisions-flow-list">
+        <div class="decision-flow-item">
+          <div class="decision-flow-bullet">01</div>
+          <div class="decision-flow-content">
+            <h4>Automated Purchase Orders with Dynamic Buffers</h4>
+            <p>Generate precise supplier orders calibrated to lead-time variability and high-confidence safety stock boundaries.</p>
+          </div>
+        </div>
+
+        <div class="decision-flow-item">
+          <div class="decision-flow-bullet">02</div>
+          <div class="decision-flow-content">
+            <h4>Proactive Store Allocation Before Viral Surges</h4>
+            <p>Pre-allocate inventory to regional hubs based on leading social and weather indicators 10 days before consumer runs happen.</p>
+          </div>
+        </div>
+
+        <div class="decision-flow-item">
+          <div class="decision-flow-bullet">03</div>
+          <div class="decision-flow-content">
+            <h4>Promotional Supply Alignment</h4>
+            <p>Ensure marketing and supply chain share the exact same expected unit lift, preventing disastrous out-of-stock circulars.</p>
+          </div>
+        </div>
+
+        <div class="decision-flow-item">
+          <div class="decision-flow-bullet">04</div>
+          <div class="decision-flow-content">
+            <h4>Perishable &amp; Expiry Risk Mitigation</h4>
+            <p>Identify slowing velocity 3 weeks earlier to trigger markdown or transfer actions before goods turn into landfill loss.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Final CTA -->
+  <section class="final-cta-section" id="contact">
+    <div class="container">
+      <div class="cta-box">
+        <span class="section-label">
+          <span class="section-label-dot"></span>
+          <span>Next Step</span>
+        </span>
+        <h2>Benchmark Your Forecast Accuracy Free</h2>
+        <div class="solution-headline" style="margin-bottom: 18px;">Send Us 12 Months of Historical Data. See the Accuracy Lift.</div>
+        <p>
+          Our team will run your historical SKU sales through Consumo's ML engines and demonstrate the exact error reduction and working capital savings you could achieve.
+        </p>
+        <div class="cta-box-buttons">
+          <button class="btn btn-cyan btn-lg open-modal-btn">
+            <span>Book a Free Data Assessment</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+          <a href="index.html" class="btn btn-ghost-dark btn-lg">
+            <span>Back to Home Overview</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:12px;">
+            <div class="brand-mark" style="width:28px; height:28px;">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+            <h3 style="margin:0; font-size:1.35rem; color:#ffffff;">Consumo</h3>
+          </div>
+          <p>AI-Powered Intelligence for FMCG &amp; Retail</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="demand-forecasting.html">Demand Forecasting</a></li>
+            <li><a href="inventory-optimisation.html">Supply Chain &amp; Inventory Optimisation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="#contact" class="open-modal-btn">Contact</a></li>
+            <li><a href="index.html#why-consumo">Why Consumo</a></li>
+            <li><a href="#contact" class="open-modal-btn">Data Assessment</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Consumo. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Assessment Modal -->
+  <div class="modal-backdrop" id="assessment-modal">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div>
+          <div class="modal-title">Book a Free Data Assessment</div>
+          <div class="modal-subtitle">Benchmark your forecasting with Consumo AI</div>
+        </div>
+        <button class="modal-close" id="modal-close-btn" aria-label="Close modal">×</button>
+      </div>
+
+      <div class="modal-body">
+        <form id="assessment-form">
+          <div class="form-group">
+            <label class="form-label" for="modal-name">Full Name</label>
+            <input type="text" class="form-input" id="modal-name" placeholder="Sarah Jenkins" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="modal-email">Corporate Email</label>
+            <input type="email" class="form-input" id="modal-email" placeholder="sarah@retailer.com" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="modal-company">Company Name</label>
+            <input type="text" class="form-input" id="modal-company" placeholder="Global Retail Brands Ltd" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="modal-focus">Primary Assessment Focus</label>
+            <select class="custom-select" id="modal-focus">
+              <option value="demand" selected>Demand Planning &amp; Forecasting</option>
+              <option value="inventory">Inventory &amp; Replenishment Optimisation</option>
+              <option value="supply">Supply Chain &amp; Lead-Time Resilience</option>
+            </select>
+          </div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-sm" id="modal-cancel-btn">Cancel</button>
+        <button type="button" class="btn btn-primary btn-sm" id="modal-submit-btn">Submit Request</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top-btn" id="back-to-top-btn" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="19" x2="12" y2="5"></line>
+      <polyline points="5 12 12 5 19 12"></polyline>
+    </svg>
+  </button>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
