@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consumo Enterprise | Manufacturing &amp; FMCG Demand Decision Suite</title>
+  <meta name="description" content="Tier-1 FMCG & Manufacturing Demand Forecasting and Inventory Intelligence Platform.">
+  <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+  <!-- =========================================================================
+       1. AUTHENTICATION / LOGIN VIEW OVERLAY
+       ========================================================================= -->
+  <div class="auth-overlay" id="auth-overlay">
+    <div class="auth-card">
+      <div class="auth-header">
+        <div class="auth-brand">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+          <span>Consumo<span style="color:var(--sn-cyan);">.</span></span>
+          <span class="auth-brand-badge">ENTERPRISE</span>
+        </div>
+        <p>Manufacturing &amp; FMCG Decision Suite</p>
+      </div>
+
+      <div class="auth-body">
+        <form id="auth-form">
+          <div class="auth-field">
+            <label for="auth-email">Corporate User ID / Email</label>
+            <div class="auth-input-wrapper">
+              <svg class="auth-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <input type="email" id="auth-email" class="auth-input" placeholder="planner@consumo.ai" required>
+            </div>
+          </div>
+
+          <div class="auth-field">
+            <label for="auth-password">Security Password</label>
+            <div class="auth-input-wrapper">
+              <svg class="auth-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              <input type="password" id="auth-password" class="auth-input" placeholder="••••••••" required>
+            </div>
+          </div>
+
+          <div class="auth-actions">
+            <label class="auth-remember">
+              <input type="checkbox" id="auth-remember" checked>
+              <span>Remember this terminal</span>
+            </label>
+            <a href="#" style="color:var(--sn-blue); text-decoration:none; font-weight:600;" onclick="alert('Demo Access: Click the Quick Demo Login button below.'); return false;">Help?</a>
+          </div>
+
+          <button type="submit" class="auth-btn-submit">
+            <span>Sign In to Decision Suite</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </form>
+
+        <div class="auth-divider">
+          <span>or explore demo</span>
+        </div>
+
+        <button type="button" class="auth-demo-btn" id="btn-demo-login">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+          </svg>
+          <span>One-Click FMCG Planner Demo Login</span>
+        </button>
+
+        <div class="auth-footer-note">
+          Enterprise SSO &amp; Multi-Factor Authentication Enforced
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       2. DASHBOARD APP SHELL
+       ========================================================================= -->
+  <div class="app-shell" id="app-shell">
+    
+    <!-- Topbar Navigation -->
+    <header class="app-topbar">
+      <div class="topbar-container">
+        <div class="topbar-left">
+          <a href="index.html" class="app-brand" title="Return to Marketing Overview">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+            <span>Consumo<span class="dot">.</span></span>
+          </a>
+
+          <div class="app-division-badge">
+            <span class="live-dot"></span>
+            <span>FMCG Operations: Global Foods &amp; Refreshments</span>
+          </div>
+
+          <!-- Module Switcher Tabs -->
+          <nav class="module-switcher-nav" aria-label="Core Modules">
+            <button class="module-nav-btn is-active" id="tab-demand-pulse">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+              <span>Demand Pulse</span>
+              <span class="badge-pill">ACTIVE</span>
+            </button>
+            <button class="module-nav-btn" id="tab-inventory-flow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              </svg>
+              <span>Inventory Flow</span>
+              <span class="badge-pill">PHASE 2</span>
+            </button>
+          </nav>
+        </div>
+
+        <div class="topbar-right">
+          <a href="index.html" class="btn-export" style="text-decoration:none;" title="View Public Website">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span>Public Site</span>
+          </a>
+
+          <div class="user-profile-widget">
+            <div class="user-avatar" id="header-user-avatar">S</div>
+            <div class="user-meta">
+              <span class="user-name" id="header-user-name">Sarah Jenkins</span>
+              <span class="user-role" id="header-user-role">Lead Demand Planner — FMCG</span>
+            </div>
+            <button class="btn-logout" id="btn-logout" title="Sign Out">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+                <polyline points="16 17 21 12 16 7"></polyline>
+                <line x1="21" y1="12" x2="9" y2="12"></line>
+              </svg>
+              <span>Logout</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- FMCG Control & Slice Bar -->
+    <div class="fmcg-control-bar">
+      <div class="control-bar-inner">
+        <div class="filter-group-left">
+          <div class="filter-item">
+            <span class="filter-label">Category:</span>
+            <select class="filter-select" id="select-category">
+              <option value="Beverages">Beverages &amp; Energy</option>
+              <option value="Personal Care">Personal Care &amp; Beauty</option>
+              <option value="Packaged Foods">Packaged Foods &amp; Snacks</option>
+            </select>
+          </div>
+
+          <div class="filter-item">
+            <span class="filter-label">SKU:</span>
+            <select class="filter-select" id="select-sku">
+              <option value="SKU-BEV-01">Citrus Spark Energy Drink 500ml</option>
+              <option value="SKU-PC-02">Radiance Keratin Shampoo 350ml</option>
+              <option value="SKU-FOOD-03">NutriCrunch Whole Grain Biscuits 200g</option>
+            </select>
+          </div>
+
+          <div class="filter-item">
+            <span class="filter-label">DC Node:</span>
+            <select class="filter-select" id="select-dc">
+              <option value="North Metro DC">North Metro DC (Central Hub)</option>
+              <option value="West Regional DC">West Regional DC</option>
+              <option value="National Consolidated">National Consolidated Network</option>
+            </select>
+          </div>
+
+          <div class="filter-item">
+            <span class="filter-label">Horizon:</span>
+            <div class="horizon-toggle-group">
+              <button class="horizon-btn" data-horizon="4w">4 Wks</button>
+              <button class="horizon-btn is-active" data-horizon="12w">12 Wks (S&amp;OP)</button>
+              <button class="horizon-btn" data-horizon="52w">52 Wks (AOP)</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-group-right">
+          <button class="btn-export" onclick="alert('Exporting Consensus FMCG Demand Plan to Excel (XLSX)...');">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Export S&amp;OP Ledger</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="app-content">
+
+      <!-- =====================================================================
+           MODULE 1: DEMAND PULSE (ACTIVE)
+           ===================================================================== -->
+      <section class="module-view is-visible" id="view-demand-pulse">
+        
+        <!-- 1. Executive KPI Cards Ribbon -->
+        <div class="kpi-grid">
+          <div class="kpi-card accent-cyan">
+            <div class="kpi-header">
+              <span class="kpi-title">Consensus Forecast (12 Wk)</span>
+              <div class="kpi-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                  <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="kpi-value-row">
+              <span class="kpi-value" id="kpi-forecast-val">2,720,000 Units</span>
+              <span class="kpi-delta is-positive" id="kpi-forecast-delta">+14.2%</span>
+            </div>
+            <div class="kpi-benchmark-note">S&amp;OP Unconstrained Demand</div>
+          </div>
+
+          <div class="kpi-card accent-success">
+            <div class="kpi-header">
+              <span class="kpi-title">Model Accuracy (WMAPE)</span>
+              <div class="kpi-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="kpi-value-row">
+              <span class="kpi-value" id="kpi-wmape-val">94.2%</span>
+              <span class="kpi-delta is-positive" id="kpi-wmape-delta">+22.7% FVA</span>
+            </div>
+            <div class="kpi-benchmark-note">vs. 71.5% Excel Heuristic</div>
+          </div>
+
+          <div class="kpi-card">
+            <div class="kpi-header">
+              <span class="kpi-title">Forecast Tracking Bias</span>
+              <div class="kpi-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                </svg>
+              </div>
+            </div>
+            <div class="kpi-value-row">
+              <span class="kpi-value" id="kpi-bias-val">+1.8%</span>
+              <span class="kpi-delta is-neutral" id="kpi-bias-status">In Control</span>
+            </div>
+            <div class="kpi-benchmark-note">Target: [-4.0%, +4.0%]</div>
+          </div>
+
+          <div class="kpi-card accent-warning">
+            <div class="kpi-header">
+              <span class="kpi-title">Promotional Uplift</span>
+              <div class="kpi-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="kpi-value-row">
+              <span class="kpi-value" id="kpi-promo-val">+620K</span>
+              <span class="kpi-delta is-positive" id="kpi-promo-share">22.8% Vol</span>
+            </div>
+            <div class="kpi-benchmark-note">Incremental Trade Lift</div>
+          </div>
+
+          <div class="kpi-card accent-purple">
+            <div class="kpi-header">
+              <span class="kpi-title">Price Elasticity Effect</span>
+              <div class="kpi-icon">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="12" y1="1" x2="12" y2="23"></line>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                </svg>
+              </div>
+            </div>
+            <div class="kpi-value-row">
+              <span class="kpi-value" id="kpi-price-val">-95K</span>
+              <span class="kpi-delta is-neutral" id="kpi-price-elasticity">Elast: -1.34</span>
+            </div>
+            <div class="kpi-benchmark-note">Index Response vs Year-1</div>
+          </div>
+        </div>
+
+        <!-- 2. Primary Multi-Horizon Time-Series Visualization -->
+        <div class="chart-card-main">
+          <div class="chart-header-row">
+            <div class="chart-title-box">
+              <h3>
+                <span>Multi-Horizon Demand Trajectory: 3-Year Actuals vs. ML Sensed Forecast</span>
+                <span class="badge-pill" style="background:var(--sn-blue-light); color:var(--sn-blue); font-size:0.75rem;">AI ENSEMBLE PIPELINE</span>
+              </h3>
+              <p>Historical sales (2023–2025) decomposed with calendar seasonality, trade promo spikes, price changes, and 2026 probabilistic forecast bounds.</p>
+            </div>
+
+            <!-- Layer Toggles -->
+            <div class="chart-layer-toggles">
+              <div class="layer-chip is-active" data-layer="actuals">
+                <span class="chip-indicator actuals"></span>
+                <span>3-Yr Actual Demand</span>
+              </div>
+              <div class="layer-chip is-active" data-layer="forecast">
+                <span class="chip-indicator forecast"></span>
+                <span>Consumo Sensed Forecast</span>
+              </div>
+              <div class="layer-chip is-active" data-layer="ciBand">
+                <span class="chip-indicator ci-band"></span>
+                <span>95% Conf Band (P10-P90)</span>
+              </div>
+              <div class="layer-chip is-active" data-layer="seasonality">
+                <span class="chip-indicator seasonality"></span>
+                <span>Baseline Seasonality</span>
+              </div>
+              <div class="layer-chip is-active" data-layer="promotions">
+                <span class="chip-indicator promotions"></span>
+                <span>Trade Promotions</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic SVG Chart Container with Tooltip -->
+          <div class="timeseries-svg-container" id="chart-timeseries-container">
+            <!-- Rendered by dashboard.js -->
+          </div>
+          <div class="chart-tooltip-box" id="chart-tooltip"></div>
+        </div>
+
+        <!-- 3. Dual Analytics Row: SHAP Explainability + Scenario Simulator -->
+        <div class="analytics-dual-row">
+          
+          <!-- Left: SHAP Feature Attribution Waterfall -->
+          <div class="analytics-card">
+            <div class="analytics-card-header">
+              <div>
+                <h3>Model Explainability: Feature Attribution (SHAP)</h3>
+                <p>Quantifying exact causal contributions to the consensus forecast volume.</p>
+              </div>
+              <span class="badge-pill" style="background:#f1f5f9; color:#334155; font-size:0.75rem; font-weight:700;">CAUSAL ML</span>
+            </div>
+
+            <div class="shap-waterfall-list" id="shap-waterfall-list">
+              <!-- Rendered by dashboard.js -->
+            </div>
+          </div>
+
+          <!-- Right: Interactive What-If Scenario Console -->
+          <div class="analytics-card">
+            <div class="analytics-card-header">
+              <div>
+                <h3>S&amp;OP "What-If" Scenario Simulator</h3>
+                <p>Simulate demand and margin elasticity by adjusting trade spend and pricing.</p>
+              </div>
+              <span class="badge-pill" style="background:#fef3c7; color:#b45309; font-size:0.75rem; font-weight:700;">INTERACTIVE SANDBOX</span>
+            </div>
+
+            <div class="scenario-controls-box">
+              <div class="slider-group">
+                <div class="slider-header">
+                  <span>Simulate Planned Trade Discount Depth (% TPR):</span>
+                  <span class="current-val" id="val-promo-depth">15%</span>
+                </div>
+                <input type="range" class="fmcg-slider" id="slider-promo-depth" min="0" max="30" step="5" value="15">
+              </div>
+
+              <div class="slider-group">
+                <div class="slider-header">
+                  <span>Simulate SKU Price Change (% Adjustment):</span>
+                  <span class="current-val" id="val-price-change">0%</span>
+                </div>
+                <input type="range" class="fmcg-slider" id="slider-price-change" min="-10" max="10" step="1" value="0">
+              </div>
+
+              <!-- Real-time Scenario Impact Readout -->
+              <div class="scenario-impact-results">
+                <div class="impact-metric-box">
+                  <div class="impact-label">Volume Impact</div>
+                  <div class="impact-val" id="impact-vol-val">+0k</div>
+                </div>
+                <div class="impact-metric-box">
+                  <div class="impact-label">Gross Rev Impact</div>
+                  <div class="impact-val" id="impact-rev-val">+$0k</div>
+                </div>
+                <div class="impact-metric-box">
+                  <div class="impact-label">Net Profit Impact</div>
+                  <div class="impact-val" id="impact-margin-val">+$0k</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 4. Granular Planning Ledger Table -->
+        <div class="ledger-card">
+          <div class="ledger-header-row">
+            <div class="ledger-title">
+              <h3>Channel &amp; Customer Demand Allocation Ledger</h3>
+              <p>Granular distribution of 12-week forecast across retail channels and commercial tiers.</p>
+            </div>
+          </div>
+
+          <div class="ledger-table-wrapper">
+            <table class="ledger-table">
+              <thead>
+                <tr>
+                  <th>Commercial Channel</th>
+                  <th>Volume Share</th>
+                  <th>Baseline Units</th>
+                  <th>Promo Uplift</th>
+                  <th>Consensus Forecast</th>
+                  <th>Model WMAPE</th>
+                  <th>Tracking Bias</th>
+                  <th>Approval Status</th>
+                </tr>
+              </thead>
+              <tbody id="ledger-table-body">
+                <!-- Rendered by dashboard.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- =====================================================================
+           MODULE 2: INVENTORY FLOW (EMPTY PLACEHOLDER MODULE AS REQUESTED)
+           ===================================================================== -->
+      <section class="module-view" id="view-inventory-flow">
+        <div class="empty-module-container">
+          <div class="empty-module-content">
+            <div class="empty-module-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                <line x1="12" y1="22.08" x2="12" y2="12"></line>
+              </svg>
+            </div>
+            <span class="empty-module-badge">Next Phase Deployment</span>
+            <h2 class="empty-module-title">Inventory Flow Module</h2>
+            <p class="empty-module-desc">
+              Multi-echelon inventory optimization (MEIO), dynamic safety stock calculation, and automated purchase order generation are scheduled for the Phase 2 rollout.
+            </p>
+            <div class="empty-module-features-box">
+              <div style="font-weight:700; color:var(--sn-midnight); margin-bottom:8px;">Upcoming Capabilities:</div>
+              <ul>
+                <li>Multi-Echelon Buffer Allocation (Central DC vs Regional Hubs vs Retail Shelves)</li>
+                <li>Stochastic Lead-Time Simulation with Bayesian Supplier Reliability</li>
+                <li>Automated Purchase Order &amp; Production Trigger Recommendations</li>
+                <li>Working Capital &amp; Service Level (OTIF) Pareto Frontier Calibration</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Dashboard JavaScript Engine -->
+  <script src="dashboard.js"></script>
+</body>
+
+</html>
