@@ -111,7 +111,8 @@ body {
   font-family: var(--font-body);
   background-color: #EBF2FA;
   color: var(--text-body);
-  line-height: 1.7;
+  line-height: 1.75;
+  font-weight: 500;
   overflow-x: hidden;
   position: relative;
   -webkit-font-smoothing: antialiased;
@@ -193,9 +194,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-subtitle {
-  font-size: 1.12rem;
-  color: var(--text-muted);
-  max-width: 700px;
+  font-size: 1.14rem;
+  font-weight: 500;
+  color: rgba(12, 31, 63, 0.88);
+  max-width: 720px;
   line-height: 1.75;
 }
 
@@ -394,7 +396,7 @@ h1, h2, h3, h4, h5, h6 {
   gap: 8px;
   padding: 12px 24px;
   border-radius: var(--radius-sm);
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.92rem;
   cursor: pointer;
   border: none;
@@ -530,7 +532,7 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   position: relative;
   overflow: hidden;
-  border-bottom: 1px solid rgba(143, 170, 220, 0.14);
+  border-bottom: none;
 }
 
 /* Floating Ambient Orbs */
@@ -729,10 +731,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .section-divider {
-  width: 100%;
-  height: 1px;
-  background: var(--border-light);
-  margin: 0 auto;
+  display: none;
 }
 
 /* ==========================================================================
@@ -836,9 +835,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .challenge-card p {
-  font-size: 0.92rem;
-  color: var(--text-muted);
-  line-height: 1.65;
+  font-size: 0.94rem;
+  font-weight: 500;
+  color: rgba(12, 31, 63, 0.82);
+  line-height: 1.68;
 }
 
 /* Consummo Solution Highlight Card */
@@ -1076,7 +1076,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .solution-section-block {
   padding: 100px 0;
-  border-bottom: 1px solid var(--border-light);
+  border-bottom: none;
 }
 
 .solution-section-block.alt-bg {
@@ -1100,18 +1100,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .solution-headline {
-  font-size: 1.22rem;
+  font-size: 1.28rem;
   color: var(--sn-blue);
   margin-bottom: 18px;
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.45;
+  letter-spacing: -0.015em;
 }
 
 .solution-body-text {
-  font-size: 1.02rem;
-  color: var(--text-muted);
-  line-height: 1.75;
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: var(--sn-midnight);
+  line-height: 1.8;
   margin-bottom: 34px;
+  letter-spacing: -0.01em;
 }
 
 .solution-cards-col {
@@ -1295,8 +1298,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .action-list li {
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 0.92rem;
+  font-weight: 600;
   color: var(--text-body);
   display: flex;
   align-items: flex-start;
@@ -1487,9 +1490,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .process-card p {
-  font-size: 0.9rem;
-  color: var(--text-muted);
-  line-height: 1.65;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: rgba(12, 31, 63, 0.82);
+  line-height: 1.68;
 }
 
 /* ==========================================================================
@@ -1555,9 +1559,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .dashboard-card p {
-  font-size: 0.94rem;
-  color: var(--text-muted);
-  line-height: 1.65;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(12, 31, 63, 0.82);
+  line-height: 1.68;
 }
 
 /* ==========================================================================
@@ -1618,8 +1623,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .why-card p {
-  font-size: 0.94rem;
-  color: #0C1F3F;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(12, 31, 63, 0.82);
   line-height: 1.7;
 }
 
@@ -2493,7 +2499,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Challenge Spotlight Section */
 .detail-section {
   padding: 96px 0;
-  border-bottom: 1px solid var(--border-light);
+  border-bottom: none;
   position: relative;
 }
 
@@ -3024,20 +3030,21 @@ h1, h2, h3, h4, h5, h6 {
 /* Closed Loop Bridge Banner between Demand & Inventory */
 .closed-loop-bridge-banner {
   background: var(--bg-subtle);
-  padding: 0 0 50px 0;
+  padding: 0 0 60px 0;
+  border: none;
 }
 
 .closed-loop-box {
   background: #ffffff;
-  border: 1px solid var(--border-light);
+  border: 1px solid rgba(143, 170, 220, 0.45);
   border-radius: var(--radius-lg);
-  padding: 30px 40px;
+  padding: 34px 44px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.95);
-  border-left: 4px solid var(--sn-blue);
+  gap: 24px;
+  box-shadow: 0 14px 40px -8px rgba(12, 31, 63, 0.08), 0 2px 6px rgba(12, 31, 63, 0.04), inset 0 1px 0 rgba(255, 255, 255, 1);
+  border-left: 5px solid var(--sn-blue);
   position: relative;
   overflow: hidden;
   transition: transform var(--transition-card), box-shadow var(--transition-card);
@@ -3053,25 +3060,32 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .closed-loop-step .step-badge {
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 800;
   color: var(--sn-blue);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   margin-bottom: 6px;
+  display: inline-block;
+  padding: 3px 8px;
+  background: rgba(47, 93, 168, 0.08);
+  border-radius: var(--radius-xs);
+  border: 1px solid rgba(47, 93, 168, 0.2);
 }
 
 .closed-loop-step h4 {
-  font-size: 1.05rem;
-  font-weight: 700;
+  font-size: 1.12rem;
+  font-weight: 800;
   color: var(--sn-midnight);
-  margin: 0 0 4px 0;
+  margin: 0 0 6px 0;
+  letter-spacing: -0.015em;
 }
 
 .closed-loop-step p {
-  font-size: 0.86rem;
-  color: var(--text-muted);
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: rgba(12, 31, 63, 0.82);
   margin: 0;
-  line-height: 1.45;
+  line-height: 1.55;
 }
 
 .closed-loop-arrow {
