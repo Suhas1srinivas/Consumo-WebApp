@@ -15,9 +15,9 @@
   --sn-text-dark: #0C1F3F;
   --sn-text-muted: #2F5DA8;
   --sn-border: rgba(143, 170, 220, 0.45);
-  --sn-border-light: #FFF1E8;
+  --sn-border-light: #EBF2FA;
   --sn-card-bg: #ffffff;
-  --sn-bg-app: #FFF1E8;
+  --sn-bg-app: #EBF2FA;
   --sn-success: #10b981;
   --sn-success-light: #d1fae5;
   --sn-danger: #ef4444;
@@ -238,7 +238,7 @@ body {
 .auth-demo-btn {
   width: 100%;
   padding: 10px;
-  background: #FFF1E8;
+  background: #EBF2FA;
   color: #1e293b;
   border: 1px solid var(--sn-border);
   border-radius: var(--radius-sm);
@@ -320,7 +320,7 @@ body {
   font-size: 0.8rem;
   font-weight: 600;
   color: #0C1F3F;
-  background: #FFF1E8;
+  background: #EBF2FA;
   padding: 5px 12px;
   border-radius: var(--radius-full);
   border: 1px solid var(--sn-border);
@@ -339,7 +339,7 @@ body {
   display: flex;
   align-items: center;
   gap: 6px;
-  background: #FFF1E8;
+  background: #EBF2FA;
   padding: 4px;
   border-radius: var(--radius-md);
   border: 1px solid var(--sn-border);
@@ -507,7 +507,7 @@ body {
 }
 
 .filter-select:hover {
-  background-color: #FFF1E8;
+  background-color: #EBF2FA;
   border-color: #8FAADC;
 }
 
@@ -520,7 +520,7 @@ body {
 .horizon-toggle-group {
   display: flex;
   align-items: center;
-  background: #FFF1E8;
+  background: #EBF2FA;
   border: 1px solid var(--sn-border);
   border-radius: var(--radius-sm);
   padding: 2px;
@@ -700,7 +700,7 @@ body {
 }
 
 .kpi-delta.is-neutral {
-  background: #FFF1E8;
+  background: #EBF2FA;
   color: #0C1F3F;
 }
 
@@ -778,7 +778,7 @@ body {
 }
 
 .layer-chip:hover {
-  background: #FFF1E8;
+  background: #EBF2FA;
 }
 
 .layer-chip.is-active {
@@ -946,7 +946,7 @@ body {
 .shap-bar-track {
   flex: 1;
   height: 18px;
-  background: #FFF1E8;
+  background: #EBF2FA;
   border-radius: var(--radius-sm);
   position: relative;
   overflow: hidden;
@@ -1167,7 +1167,7 @@ body {
   width: 64px;
   height: 64px;
   border-radius: var(--radius-md);
-  background: #FFF1E8;
+  background: #EBF2FA;
   color: #0C1F3F;
   display: inline-flex;
   align-items: center;
