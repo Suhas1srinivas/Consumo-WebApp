@@ -4,20 +4,20 @@
    ========================================================================== */
 
 :root {
-  --sn-midnight: #201A1E;
-  --sn-deep-navy: #141013;
-  --sn-blue: #D0B49F;
-  --sn-blue-hover: #ba9b84;
-  --sn-blue-light: #f7f2ee;
-  --sn-cyan: #E5D4C9;
-  --sn-cyan-soft: #fbf8f5;
-  --sn-neon-cyan: #E5D4C9;
-  --sn-text-dark: #201A1E;
+  --sn-midnight: #0C1F3F;
+  --sn-deep-navy: #061021;
+  --sn-blue: #2F5DA8;
+  --sn-blue-hover: #244985;
+  --sn-blue-light: #ebf1fa;
+  --sn-cyan: #8FAADC;
+  --sn-cyan-soft: #f0f4fb;
+  --sn-neon-cyan: #8FAADC;
+  --sn-text-dark: #0C1F3F;
   --sn-text-muted: #64748b;
   --sn-border: #e2e8f0;
   --sn-border-light: #edf2f7;
   --sn-card-bg: #ffffff;
-  --sn-bg-app: #E2E6E7;
+  --sn-bg-app: #FFF1E8;
   --sn-success: #10b981;
   --sn-success-light: #d1fae5;
   --sn-danger: #ef4444;
@@ -61,7 +61,7 @@ body {
 .auth-overlay {
   position: fixed;
   inset: 0;
-  background: radial-gradient(circle at 50% 20%, #1e1b4b 0%, #201A1E 100%);
+  background: radial-gradient(circle at 50% 20%, #1e1b4b 0%, #0C1F3F 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -194,12 +194,8 @@ body {
   cursor: pointer;
 }
 
-.auth-btn-submit {
-  width: 100%;
-  padding: 12px;
-  background: linear-gradient(135deg, #D0B49F 0%, #ba9b84 100%);
-  color: #201A1E;
-  border: 1px solid rgba(208, 180, 159, 0.6);
+#ffffff;
+  border: 1px solid rgba(47, 93, 168, 0.6);
   border-radius: var(--radius-sm);
   font-size: 0.94rem;
   font-weight: 700;
@@ -209,13 +205,13 @@ body {
   justify-content: center;
   gap: 8px;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 14px rgba(208, 180, 159, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 14px rgba(47, 93, 168, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 .auth-btn-submit:hover {
-  background: linear-gradient(135deg, #dec3af 0%, #D0B49F 100%);
+  background: linear-gradient(135deg, #3b6ec2 0%, #2F5DA8 100%);
   transform: translateY(-2px);
-  box-shadow: 0 8px 22px rgba(208, 180, 159, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 22px rgba(47, 93, 168, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
 
 .auth-divider {
@@ -799,7 +795,7 @@ body {
 }
 
 .layer-chip .chip-indicator.actuals { background: #334155; }
-.layer-chip .chip-indicator.forecast { background: #D0B49F; }
+.layer-chip .chip-indicator.forecast { background: #2F5DA8; }
 .layer-chip .chip-indicator.ci-band { background: rgba(6, 182, 212, 0.35); }
 .layer-chip .chip-indicator.seasonality { background: #8b5cf6; }
 .layer-chip .chip-indicator.promotions { background: #f59e0b; }
@@ -963,7 +959,7 @@ body {
 }
 
 .shap-bar-fill.positive {
-  background: linear-gradient(90deg, #D0B49F, #E5D4C9);
+  background: linear-gradient(90deg, #2F5DA8, #8FAADC);
 }
 
 .shap-bar-fill.negative {
